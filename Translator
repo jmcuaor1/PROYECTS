@@ -1,8 +1,8 @@
 from translate import Translator
 
-translator = Translator(from_lang = 'spanish', to_lang ='english')
+translator = Translator(from_lang='spanish', to_lang='english')
 
-txt = input('¿Qué te gustaria traduccir?')
+txt = input('¿Qué te gustaría traducir?')
 res = translator.translate(txt)
 
 print(res)
