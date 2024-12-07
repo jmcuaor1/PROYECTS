@@ -1,0 +1,24 @@
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+your_email = 'justanotheremail@gmail.com'
+your_password = 'SMKKMSKDKMKMSKMJSJ'
+
+recipient = 'chajaja@gmail.com'
+
+message = MIMEMultipart()
+message['From'] = your_email
+message['To'] = recipient
+message['Subject'] = 'Prod message'
+
+body = 'Thanks for all'
+message.attach(MIMEText(body, 'plain'))
+
+# Use the correct SMTP server and port for Gmail
+smtp_server = smtplib.SMTP('smtp.gmail.com', 587)
+smtp_server.starttls()
+smtp_server.login(your_email, your_password)
+
+smtp_server.sendmail(your_email, recipient, message.as_string())  # Corrected method
+smtp_server.quit()
